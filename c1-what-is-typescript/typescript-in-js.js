@@ -1,0 +1,1 @@
+const myStudents: string = "Awesome";
