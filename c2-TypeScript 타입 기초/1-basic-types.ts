@@ -17,4 +17,3 @@ newBookTitle.toUpperCase();
 // 🧑‍🏫 타입에 맞지 않는 코드는 TypeScript 컴파일러가 에러를 던져준다.
 newBookTitle = 42; // Type 'number' is not assignable to type 'string'.
 num.length // Property 'length' does not exist on type 'number'.
-

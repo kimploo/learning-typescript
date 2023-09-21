@@ -21,7 +21,12 @@ function calculateTax(price: number | string, tax: number) {
 const div = document.querySelector('div')
 
 // 아래 에러는 어떻게 해결할 수 있을까요?
-div.textContent 
+// div.textContent 
+if (!div) {
+  // Do something
+} else {
+  div.textContent 
+}
 
 // Tuple(튜플): 길이가 정해진 배열
 // 🚨 배열과 표시 방식이 유사하기 때문에 조심!

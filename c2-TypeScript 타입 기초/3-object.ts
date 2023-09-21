@@ -1,4 +1,3 @@
-
 // object(객체)
 // 😮 TypeScript에는 객체 표현을 위해 두 방법을 사용합니다. type, interface
 type GameUnitA = {
@@ -73,3 +72,30 @@ const Corki: ADCarry = {
 // 배열의 요소로 객체가 들어오는 경우 유용하게 활용 가능
 const FirstADCarries: ADCarry[] = [Corki]; 
 const SecondADCarries: Array<ADCarry> = [Ashe, Corki]; 
+
+// 기존 JavaScript처럼 객체를 쓰고 싶은 경우
+interface JavaScriptLikeObj {
+  [key: string]: any
+}
+
+interface GameUnitC {
+  name: string;
+  HP: number;
+  [key: string]: any;
+}
+
+const marine: GameUnitC = {
+  name: '마린',
+  HP: 40,
+  MP: 0
+}
+
+interface GameUnitD extends GameUnitA {
+  [key: string]: any;
+}
+
+const SCV: GameUnitD = {
+  name: 'SCV',
+  HP: 40,
+  MP: 0
+}
