@@ -5,7 +5,7 @@ const numberList: Array<number> = [4, 7, 100]; // built-in Generic
 
 // nested array
 const matrix: number[][] = [
-	[0, 1, 1],
-	[0, 1, 1],
-	[0, 0, 0]
-]
+  [0, 1, 1],
+  [0, 1, 1],
+  [0, 0, 0],
+];

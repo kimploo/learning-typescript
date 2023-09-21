@@ -1,15 +1,15 @@
 // Generic: 매개변수가 있는 타입. 재사용 가능한 타입을 제작할 수 있다.
 // ex) event handler
-const button = document.querySelector('.button')
-button?.addEventListener('click', (e) => {
-  console.log('clicked!')
-})
+const button = document.querySelector(".button");
+button?.addEventListener("click", (e) => {
+  console.log("clicked!");
+});
 
 // 이벤트의 종류는 아주 많다. 그러면 React의 @types/react 라이브러리에서 타입 지정을 할 때는 이벤트마다 핸들러를 만들까?
 // No. 아래와 같이 이벤트 하나를 컨트롤할 수 있는 "제너릭"한 타입을 하나 만들어 대응한다.
 
 // 어떠한 엘리먼트, 어떠한 이벤트 핸들러가 와도 E에 적절한 이벤트, T에 적절한 엘리먼트를 넣어주면, 작동한다.
-type EventHandler<E extends SyntheticEvent<any>> = (event: E) => void
+type EventHandler<E extends SyntheticEvent<any>> = (event: E) => void;
 // type EventHandler<E extends SyntheticEvent<any>> = { bivarianceHack(event: E): void }["bivarianceHack"];
 
 type ReactEventHandler<T = Element> = EventHandler<SyntheticEvent<T>>;
@@ -30,8 +30,8 @@ type TransitionEventHandler<T = Element> = EventHandler<TransitionEvent<T>>;
 
 // 학습했던 Built-in 제너릭 타입이 있었다.
 const numbers: number[] = [];
-const strings: Array<string> = ['hello', 'world', 'generic'];
-// 배열 제너릭은, <> 안에 배열에 들어가면 좋을 요소를 적으면 된다. 
+const strings: Array<string> = ["hello", "world", "generic"];
+// 배열 제너릭은, <> 안에 배열에 들어가면 좋을 요소를 적으면 된다.
 
 interface Array<T> {
   [n: number]: T;
@@ -55,11 +55,14 @@ interface Array<T> {
    * @param callbackfn A function that accepts up to three arguments. The map method calls the callbackfn function one time for each element in the array.
    * @param thisArg An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value.
    */
-  map<U>(callbackfn: (value: T, index: number, array: T[]) => U, thisArg?: any): U[];
+  map<U>(
+    callbackfn: (value: T, index: number, array: T[]) => U,
+    thisArg?: any
+  ): U[];
 }
 
 // 나는 input element를 집어올 것이라고 확신하는데, 타입스크립트는 인지하지 못하고 있다.
 // querySelector의 제너릭 타입을 참고하여 문제를 해결할 수 있다.
 // querySelector<E extends Element = Element>(selectors: string): E | null;
-const input = document.querySelector('.username-input');
-input.value = '제너릭 어렵네요 ;'
+const input = document.querySelector(".username-input");
+input.value = "제너릭 어렵네요 ;";
